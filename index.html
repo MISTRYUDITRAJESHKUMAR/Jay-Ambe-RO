@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Ambe Sales And Service - Water Purifiers & Filters</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a8cd8;
+            --primary-dark: #0d6efd;
+            --secondary: #f8fafc;
+            --text: #333;
+            --text-light: #64748b;
+            --background: #fff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--background);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--background);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e1efff 100%);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--background);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--background);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--background);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #475569;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #64748b;
+        }
+
+        .author-details h4 {
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .author-details p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--background);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: var(--background);
+            border-radius: 10px;
+            padding: 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.8rem;
+            transform: rotate(45deg);
+        }
+
+        .pricing-image {
+            height: auto;
+            overflow: hidden;
+        }
+
+        .pricing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pricing-content {
+            padding: 25px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .pricing-features li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* Business Section */
+        .business {
+            padding: 80px 0;
+            background-color: #f8fafc;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--background);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta .btn:hover {
+            background: #f0f7ff;
+        }
+
+        /* Booking Form Styles */
+        .booking {
+            padding: 80px 0;
+            background-color: var(--background);
+        }
+
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .booking-info {
+            background-color: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .booking-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .info-content h4 {
+            margin-bottom: 5px;
+            color: #1e293b;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+        }
+
+        .booking-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #1e293b;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 140, 216, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #10b981;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1e293b;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+
+            .features-grid,
+            .pricing-grid,
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--background);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Jay Ambe RO Sales And Service</a>
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="features">Products</a></li>
+                    <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
+
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="booking">Book Service</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Pure Water Solutions for Your Home & Business</h1>
+                    <p>Advanced water purification systems and filters to ensure clean, safe, and great-tasting water
+                        for your family.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary" data-page="booking">Get Free Consultation</a>
+                        <a href="#" class="btn btn-outline" data-page="features">View Products</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose AquaPure?</h2>
+                    <p>We provide cutting-edge water purification technology to protect your family's health.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>Advanced Filtration</h3>
+                        <p>Multi-stage filtration removes 99.9% of contaminants and impurities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>UV Purification</h3>
+                        <p>Eliminates harmful microorganisms without chemicals.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <h3>Mineral Retention</h3>
+                        <p>Preserves essential minerals while removing harmful contaminants.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Smart Monitoring</h3>
+                        <p>Real-time water quality monitoring and filter life indicators.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Easy Maintenance</h3>
+                        <p>Quick-change filter systems with minimal maintenance requirements.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Eco-Friendly</h3>
+                        <p>Reduce plastic bottle waste with our sustainable water solutions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready for Pure, Clean Water?</h2>
+                <p>Schedule a free water test and consultation with our experts today.</p>
+                <a href="#" class="btn" data-page="booking">Book Free Consultation</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Features Page (Products) -->
+    <div id="features" class="page">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Our Water Purification Products</h1>
+                    <p>Discover our range of advanced water purification systems for every need.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Products</h2>
+                    <p>Choose from our top-selling water purification systems.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-image">
+                            <img src="img/009.jpg" alt="Home Purifier">
+                        </div>
+                        <div class="pricing-content">
+                            <h3>Sunirse Aqua Black RO Machine</h3>
+                            <div class="price">₹8000</div>
+                            <p>Compact and efficient system for homes.</p>
+                            <p>
+                                <li>Storage Tank Capacity: 12 L</li>
+
+                                <li>Purification Type: RO + UV + Mineral + Copper + TDS adjuster
+
+                                <li>Installation Type: Wall Mounted
+
+                                <li> Features: Smart Indicator
+
+                                <li> Usage/Application: Home environment
+
+                                <li> Body Material: ABS plastic
+
+                                <li> TDS Removal Efficiency: 95% to 98%
+
+                                <li> Pump: 100 GPD (Gallons Per Day) pump included
+                            </p>
+                            <a href="#" class="btn btn-primary" data-page="booking" data-product="Home Purifier">Book
+                                Now</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-image">
+                            <img src="img/012.JPG" alt="Advanced Purifier">
+                        </div>
+                        <div class="pricing-content">
+                            <h3>Organic Aiqua White Machine</h3>
+                            <div class="price">₹9,999</div>
+                            <p>
+                                <li>Storage Tank Capacity: 10 L </li>
+                            </p>
+                            <p>
+                                <li>Purification Stages: RO + UV + Mineral + Copper + TDS adjuster </li>
+                            </p>
+                            <p>
+                                <li>Installation Type: Wall-mounted</li>
+                            </p>
+                            <p>
+                                <li>Body Material: ABS plastic </li>
+                            </p>
+                            <p>
+                                <li>TDS Removal Efficiency: 95%–98% </li>
+                            </p>
+                            <p>
+                                <li>Pump: 100 GPD pump included </li>
+                            </p>
+                            <a href="#" class="btn btn-primary" data-page="booking"
+                                data-product="Advanced Purifier">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-image">
+                            <img src="img/005.JPG" alt="Commercial Purifier">
+                        </div>
+                        <div class="pricing-content">
+                            <h3>Organic Curvv White Machine</h3>
+
+                            <div class="price">₹12500</div>
+                            <p>
+                                <li> Compact Size – designed to save space
+
+                                <li> Unbreakable Body – highly durable construction
+
+                                <li> Storage Tank Capacity: 15 liters
+
+                                <li> Copper Infusion Technology – enhances water with beneficial copper ions
+
+                                <li> Removes Virus & Bacteria – effective microbial filtration
+
+                                <li> Water Saving: up to 70%—highly efficient compared to typical RO systems
+
+                                <li> TDS & Hot Water Temperature Display – real-time monitoring of water quality and
+                                    temperature
+
+                                <li> Enriched with Zinc & Alkaline Ions – additional mineral benefits for drinking water
+                                    quality
+                            </p>
+                            <a href="#" class="btn btn-primary" data-page="booking"
+                                data-product="Commercial System">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Need Help Choosing?</h2>
+                <p>Our water experts can recommend the perfect system for your needs.</p>
+                <a href="#" class="btn" data-page="booking">Contact Our Experts</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Pricing Page -->
+    <div id="pricing" class="page">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Affordable Water Solutions</h1>
+                    <p>Choose the perfect water purification system for your home or business.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Pricing Plans</h2>
+                    <p>Quality water purification solutions for every budget.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-image">
+                            <img src="img/009.jpg" alt="Home Purifier">
+                        </div>
+                        <div class="pricing-content">
+                            <h3>Sunirse Aqua Black RO Machine</h3>
+                            <div class="price">₹8000</div>
+                            <p>Compact and efficient system for homes.</p>
+                            <p>
+                                <li>Storage Tank Capacity: 12 L</li>
+
+                                <li>Purification Type: RO + UV + Mineral + Copper + TDS adjuster
+
+                                <li>Installation Type: Wall Mounted
+
+                                <li> Features: Smart Indicator
+
+                                <li> Usage/Application: Home environment
+
+                                <li> Body Material: ABS plastic
+
+                                <li> TDS Removal Efficiency: 95% to 98%
+
+                                <li> Pump: 100 GPD (Gallons Per Day) pump included
+                            </p>
+                            <a href="#" class="btn btn-primary" data-page="booking" data-product="Home Purifier">Book
+                                Now</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-image">
+                            <img src="img/012.JPG" alt="Advanced Purifier">
+                        </div>
+                        <div class="pricing-content">
+                            <h3>Organic Aiqua White Machine</h3>
+                            <div class="price">₹9,999</div>
+                            <p>
+                                <li>Storage Tank Capacity: 10 L </li>
+                            </p>
+                            <p>
+                                <li>Purification Stages: RO + UV + Mineral + Copper + TDS adjuster </li>
+                            </p>
+                            <p>
+                                <li>Installation Type: Wall-mounted</li>
+                            </p>
+                            <p>
+                                <li>Body Material: ABS plastic </li>
+                            </p>
+                            <p>
+                                <li>TDS Removal Efficiency: 95%–98% </li>
+                            </p>
+                            <p>
+                                <li>Pump: 100 GPD pump included </li>
+                            </p>
+                            <a href="#" class="btn btn-primary" data-page="booking"
+                                data-product="Advanced Purifier">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="pricing-card">
+                        <div class="pricing-image">
+                            <img src="img/005.JPG" alt="Commercial Purifier">
+                        </div>
+                        <div class="pricing-content">
+                            <h3>Organic Curvv White Machine</h3>
+
+                            <div class="price">₹12500</div>
+                            <p>
+                                <li> Compact Size – designed to save space
+
+                                <li> Unbreakable Body – highly durable construction
+
+                                <li> Storage Tank Capacity: 15 liters
+
+                                <li> Copper Infusion Technology – enhances water with beneficial copper ions
+
+                                <li> Removes Virus & Bacteria – effective microbial filtration
+
+                                <li> Water Saving: up to 70%—highly efficient compared to typical RO systems
+
+                                <li> TDS & Hot Water Temperature Display – real-time monitoring of water quality and
+                                    temperature
+
+                                <li> Enriched with Zinc & Alkaline Ions – additional mineral benefits for drinking water
+                                    quality
+                            </p>
+                            <a href="#" class="btn btn-primary" data-page="booking"
+                                data-product="Commercial System">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Need a Custom Solution?</h2>
+                <p>We provide tailored water purification systems for special requirements.</p>
+                <a href="#" class="btn" data-page="booking">Get Custom Quote</a>
+            </div>
+        </section>
+    </div>
+
+
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>About Jay Ambe RO Sales And Service</h1>
+                    <p>Your trusted partner for clean, safe water since 2020.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="img/card.jpg" alt="AquaPure Team">
+                    </div>
+                    <div class="about-content">
+                        <h2>Our Story</h2>
+                        <p>Jay Ambe RO Sales And Service was founded in 2020 with a mission to provide every Indian
+                            household with access to
+                            clean, safe drinking water. We started as a small family business and have grown to become
+                            one of the most trusted names in water purification.</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Values</h2>
+                    <p>The principles that guide everything we do.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Quality</h3>
+                        <p>We never compromise on the quality of our products or services.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Customer Focus</h3>
+                        <p>Our customers are at the heart of everything we do.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We continuously innovate to address India's water challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Booking Page -->
+    <div id="booking" class="page">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Book Your Service Appointment</h1>
+                    <p>Schedule a free consultation, product installation, or service visit with our water experts.</p>
+                </div>
+            </div>
+        </section>
+        <script>
+            function Data() {
+                let number = '+91 7874848643'
+
+                let Service = document.getElementById('serviceType').value
+                let product = document.getElementById('product').value
+                let Name = document.getElementById('Name').value
+                let email = document.getElementById('email').value;
+                let phone = document.getElementById('phone').value;
+                let address = document.getElementById('address').value;
+                let date = document.getElementById('date').value;
+                let time = document.getElementById('time').value;
+                let message = document.getElementById('message').value;
+
+
+                // Replace with your WhatsApp number (country code + number, no spaces or + sign)
+                let url = "https://wa.me/" + number + "?text=" +
+                    "Service: " + Service + "%0a%0a" +
+                    "product: " + product + "%0a%0a" +
+                    "Name: " + Name + "%0a%0a" +
+                    "Email: " + email + "%0a%0a" +
+                    "Phone: " + phone + "%0a%0a" +
+                    "address: " + address + "%0a%0a" +
+                    "Date: " + date + "%0a%0a" +
+                    "Time: " + time + "%0a%0a" +
+                    "message: " + message + "%0a%0a"
+
+
+                window.open(url, '_blank').focus();
+            }
+        </script>
+        <section class="booking">
+            <div class="container">
+                <div class="booking-container">
+                    <div class="booking-info">
+                        <h3>Why Book With Us?</h3>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Flexible Scheduling</h4>
+                                <p>Choose a date and time that works best for you.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Expert Technicians</h4>
+                                <p>Our certified professionals provide quality service.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Service Guarantee</h4>
+                                <p>We stand behind our work with a 30-day service warranty.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Quick Response</h4>
+                                <p>We typically respond within 24 hours to confirm your appointment.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h4>Need Immediate Help?</h4>
+                                <p>Call us at: <strong>+91-9773458589</strong></p>
+                                <p>Call us at: <strong>+91-9714228685</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-form">
+                        <h3 class="form-title">Schedule Your Appointment</h3>
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label for="serviceType">Service Type</label>
+                                <select class="form-control" id="serviceType" required>
+                                    <option id="service" value="">Select a service</option>
+                                    <option value="AMC Contract">AMC Contract</option>
+                                    <option value="Product Installation">Product Installation</option>
+                                    <option value="Repair Service">Repair Service</option>
+                                    <option value="Regular Maintenance">Regular Maintenance</option>
+                                    <option value="Filter Replacement">Filter Replacement</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product">Product (if applicable)</label>
+                                <select class="form-control" id="product">
+                                    <option value="">Select a product</option>
+                                    <option value="home purifier">Home Purifier</option>
+                                    <option value="advanced purifier">Advanced Purifier</option>
+                                    <option value="other">Other/Not Sure</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName"> Name</label>
+                                    <input type="text" class="form-control" id="Name" required>
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Full Address</label>
+                                <textarea class="form-control" id="address" required></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">Preferred Date</label>
+                                    <input type="date" class="form-control" id="date" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="time">Preferred Time</label>
+                                    <select class="form-control" id="time" required>
+                                        <option value="">Select time</option>
+                                        <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
+                                        <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
+                                        <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+                                        <option value="3:00 PM - 5:00 PM">3:00 PM - 5:00 PM</option>
+                                        <option value="5:00 PM - 7:00 PM">5:00 PM - 7:00 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Additional Notes</label>
+                                <textarea class="form-control" id="message"
+                                    placeholder="Any specific issues or requirements..."></textarea>
+                            </div>
+
+                            <button onclick="Data()" class="btn btn-primary" style="width: 100%;">Book
+                                Appointment</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>AquaPure</h3>
+                    <p>India's trusted water purification experts since 2010.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="nav-link" data-page="features">Home Purifiers</a></li>
+                        <li><a href="#" class="nav-link" data-page="features">Filters & Parts</a></li>
+                        <li><a href="#" class="nav-link" data-page="features">Water Softeners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="booking">Installation Guide</a></li>
+                        <li><a href="#" data-page="booking">Maintenance Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="about">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2020 Jay Ambe RO Sales And Service. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuBtn.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+            });
+
+            // Page navigation
+            const navLinksAll = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+
+            // Function to navigate to a page
+            function navigateToPage(pageId) {
+                // Remove active class from all links and pages
+                navLinksAll.forEach(navLink => navLink.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active-page'));
+
+                // Add active class to corresponding nav link
+                document.querySelector(`.nav-link[data-page="${pageId}"]`).classList.add('active');
+
+                // Show the corresponding page
+                document.getElementById(pageId).classList.add('active-page');
+
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+
+            // Add click event to all navigation links
+            navLinksAll.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    navigateToPage(pageId);
+                });
+            });
+
+            // Footer navigation
+            const footerLinks = document.querySelectorAll('.footer-links .nav-link');
+            footerLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    navigateToPage(pageId);
+                });
+            });
+
+
+
+
+            // Set minimum date to today
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                let mm = today.getMonth() + 1;
+                let dd = today.getDate();
+
+                if (dd < 10) dd = '0' + dd;
+                if (mm < 10) mm = '0' + mm;
+
+                const minDate = `${yyyy}-${mm}-${dd}`;
+                dateInput.min = minDate;
+            }
+        });
+    </script>
+</body>
+
+</html>
